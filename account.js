@@ -31,7 +31,7 @@ function showAlert(msg, category = 'success') {
 
 // Функция для получения информации о маршрутах с сервера
 async function getRoutesList() {
-    const response = await fetch('http://exam-2023-1-api.std-900.ist.mospolytech.ru/api/routes?api_key=a010fb04-9199-4f07-ab5f-d848a276383b');
+    const response = await fetch('https://edu.std-900.ist.mospolytech.ru/api/routes?api_key=a010fb04-9199-4f07-ab5f-d848a276383b');
     if (response.ok) {
         const data = await response.json();
         if (data.error) {
@@ -47,7 +47,7 @@ async function getRoutesList() {
 
 // Функция для получения заявок с сервера
 async function getOrdersList() {
-    const response = await fetch('http://exam-2023-1-api.std-900.ist.mospolytech.ru/api/orders?api_key=a010fb04-9199-4f07-ab5f-d848a276383b');
+    const response = await fetch('https://edu.std-900.ist.mospolytech.ru/api/orders?api_key=a010fb04-9199-4f07-ab5f-d848a276383b');
     if (response.ok) {
         const data = await response.json();
         if (data.error) {
@@ -201,14 +201,14 @@ function viewOrder(orderId) {
 
 // Функция для получения полной информации о заявке с сервера
 async function getOrderInfo(mode) {
-    let response = await fetch(`http://exam-2023-1-api.std-900.ist.mospolytech.ru/api/orders/${selectedOrderId}?api_key=a010fb04-9199-4f07-ab5f-d848a276383b`);
+    let response = await fetch(`https://edu.std-900.ist.mospolytech.ru/api/orders/${selectedOrderId}?api_key=a010fb04-9199-4f07-ab5f-d848a276383b`);
     if (response.ok) {
         const data = await response.json();
         if (data.error) {
             showAlert(data.error, 'error');
         } else {
             let orderInfo = data;
-            let response = await fetch(`http://exam-2023-1-api.std-900.ist.mospolytech.ru/api/guides/${orderInfo.guide_id}?api_key=a010fb04-9199-4f07-ab5f-d848a276383b`);
+            let response = await fetch(`https://edu.std-900.ist.mospolytech.ru/api/guides/${orderInfo.guide_id}?api_key=a010fb04-9199-4f07-ab5f-d848a276383b`);
             if (response.ok) {
                 const data = await response.json();
                 if (data.error) {
@@ -349,7 +349,7 @@ async function editOrder() {
     orderData.append("route_id", selectedRouteId);
     orderData.append("time", selectedTime);
 
-    const response = await fetch(`http://exam-2023-1-api.std-900.ist.mospolytech.ru/api/orders/${selectedOrderId}?api_key=a010fb04-9199-4f07-ab5f-d848a276383b`, {
+    const response = await fetch(`https://edu.std-900.ist.mospolytech.ru/api/orders/${selectedOrderId}?api_key=a010fb04-9199-4f07-ab5f-d848a276383b`, {
         method: 'PUT',
         body: orderData
     });
@@ -369,7 +369,7 @@ async function editOrder() {
 
 // Функция для удаления заявки
 async function deleteOrder() {
-    const response = await fetch(`http://exam-2023-1-api.std-900.ist.mospolytech.ru/api/orders/${selectedOrderId}?api_key=a010fb04-9199-4f07-ab5f-d848a276383b`, {
+    const response = await fetch(`https://edu.std-900.ist.mospolytech.ru/api/orders/${selectedOrderId}?api_key=a010fb04-9199-4f07-ab5f-d848a276383b`, {
         method: 'DELETE'
     });
     if (response.ok) {

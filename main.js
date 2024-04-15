@@ -41,7 +41,7 @@ function showAlert(msg, category = 'success') {
 
 // Функция для получения маршрутов с сервера
 async function getRoutesList() {
-    const response = await fetch('http://exam-2023-1-api.std-900.ist.mospolytech.ru/api/routes?api_key=a010fb04-9199-4f07-ab5f-d848a276383b');
+    const response = await fetch('https://edu.std-900.ist.mospolytech.ru/api/routes?api_key=a010fb04-9199-4f07-ab5f-d848a276383b');
     if (response.ok) {
         const data = await response.json();
         if (data.error) {
@@ -289,7 +289,7 @@ function processGuidesFilters() {
 
 // Функция для получения списка гидов по маршруту с сервера
 async function getGuidesByRoute(routeId) {
-    const response = await fetch(`http://exam-2023-1-api.std-900.ist.mospolytech.ru/api/routes/${routeId}/guides?api_key=a010fb04-9199-4f07-ab5f-d848a276383b`);
+    const response = await fetch(`https://edu.std-900.ist.mospolytech.ru/api/routes/${routeId}/guides?api_key=a010fb04-9199-4f07-ab5f-d848a276383b`);
     if (response.ok) {
         const data = await response.json();
         if (data.error) {
@@ -409,7 +409,7 @@ async function sendOrderToServer() {
     orderData.append("route_id", selectedRouteId);
     orderData.append("time", selectedTime);
 
-    const response = await fetch('http://exam-2023-1-api.std-900.ist.mospolytech.ru/api/orders?api_key=', {
+    const response = await fetch('https://edu.std-900.ist.mospolytech.ru/api/orders?api_key=', {
         method: "POST",
         body: orderData
     });
